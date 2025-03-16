@@ -7,7 +7,7 @@ import { join } from 'node:path';
   providers: [EnvConfigService],
 })
 export class EnvConfigModule extends ConfigModule {
-  static forRoot(options: ConfigModuleOptions = {}): Promise<DynamicModule> {
+  static forRoot(options: ConfigModuleOptions = {}):Promise<DynamicModule> {
     return super.forRoot({
       ...options,
       envFilePath: [

@@ -7,12 +7,12 @@ import { join } from 'node:path';
   providers: [EnvConfigService],
 })
 export class EnvConfigModule extends ConfigModule {
-  static forRoot(options: ConfigModuleOptions = {}): Promise<DynamicModule> {
-    return super.forRoot({
+  static forRoot(options: ConfigModuleOptions = {}): DynamicModule {
+    return super.forRoot(options: {
       ...options,
-      envFilePath: [
-        join(__dirname, `../../../../.env.${process.env.NODE_ENV}`),
+      envFilePath:[
+        join(...paths: __dirname, `../../../../.env.${process.env.NODE_ENV}`),
       ],
-    });
+    })
   }
 }

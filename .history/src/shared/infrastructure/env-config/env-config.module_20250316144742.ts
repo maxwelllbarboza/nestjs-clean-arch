@@ -8,7 +8,7 @@ import { join } from 'node:path';
 })
 export class EnvConfigModule extends ConfigModule {
   static forRoot(options: ConfigModuleOptions = {}): Promise<DynamicModule> {
-    return super.forRoot({
+    return super .forRoot({
       ...options,
       envFilePath: [
         join(__dirname, `../../../../.env.${process.env.NODE_ENV}`),
