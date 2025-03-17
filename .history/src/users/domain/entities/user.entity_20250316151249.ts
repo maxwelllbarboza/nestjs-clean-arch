@@ -3,10 +3,9 @@ export type UserProps = {
   email: string;
   password: string;
   createdAt?: Date;
+  updatedAt?: Date;
 };
 
 export class UserEntity {
-  constructor(public readonly props: UserProps) {
-    this.props.createdAt = this.props.createdAt ?? new Date();
-  }
+  constructor
 }
