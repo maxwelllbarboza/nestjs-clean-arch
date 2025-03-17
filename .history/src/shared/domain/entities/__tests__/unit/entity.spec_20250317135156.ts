@@ -1,0 +1,13 @@
+
+
+describe('UserEntity unit tests', () => {
+  let props: UserProps;
+  let sut: UserEntity;
+
+  beforeEach(() => {
+    props = UserDataBuilder({});
+    sut = new UserEntity(props);
+  });
+
+  it('Getter of createdAt field', () => {});
+});
