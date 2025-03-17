@@ -10,19 +10,15 @@ export class UserEntity {
     this.props.createdAt = this.props.createdAt ?? new Date();
   }
 
-  get name() {
-    return this.props.name;
+  get name(){
+    return this.props.name
   }
 
-  get email() {
-    return this.props.email;
+  get email(){
+    return this.props.email
   }
 
-  get password() {
-    return this.props.password;
-  }
-
-  get createdAt() {
-    return this.createdAt;
+  get password(){
+    return this.
   }
 }

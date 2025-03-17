@@ -40,6 +40,7 @@ describe('UserEntity unit tests', () => {
 
   it('Getter of createdAt field', () => {
     expect(sut.props.createdAt).toBeDefined();
-    expect(sut.props.createdAt).toBeInstanceOf(Date);
+    expect(sut.props.createdAt).toEqual(props.createdAt);
+    expect(typeof sut.props.createdAt).toBe('string');
   });
 });
