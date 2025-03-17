@@ -8,11 +8,8 @@ export type UserProps = {
 };
 
 export class UserEntity extends Entity<UserProps> {
-  constructor(
-    public readonly props: UserProps,
-    id?: string,
-  ) {
-    super(props, id);
+  constructor(public readonly props: UserProps) {
+    super(props)
     this.props.createdAt = this.props.createdAt ?? new Date();
   }
 

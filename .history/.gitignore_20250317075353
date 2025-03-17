@@ -2,7 +2,7 @@
 /dist
 /build
 /node_modules
-.env.test
+.env.tests
 .env.development
 
 # Logs

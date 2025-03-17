@@ -1,4 +1,4 @@
-import { Entity } from '@/shared/domain/entities/entity';
+import { Entity } from "@/shared/domain/entities/entity";
 
 export type UserProps = {
   name: string;
@@ -7,12 +7,8 @@ export type UserProps = {
   createdAt?: Date;
 };
 
-export class UserEntity extends Entity<UserProps> {
-  constructor(
-    public readonly props: UserProps,
-    id?: string,
-  ) {
-    super(props, id);
+export class UserEntity extends Entity {
+  constructor(public readonly props: UserProps) {
     this.props.createdAt = this.props.createdAt ?? new Date();
   }
 
