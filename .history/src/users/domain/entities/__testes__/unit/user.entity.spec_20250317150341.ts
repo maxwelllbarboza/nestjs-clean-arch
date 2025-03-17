@@ -51,13 +51,9 @@ describe('UserEntity unit tests', () => {
     expect(sut.props.createdAt).toBeInstanceOf(Date);
   });
 
-  it('Should update a user', () => {
-    sut.update('other name');
+  it('Setter of name field', () => {
+    sut['name'] = 'other name';
     expect(sut.props.name).toEqual('other name');
-  });
-
-  it('Should update a password field', () => {
-    sut.updatePassword('other password');
-    expect(sut.props.password).toEqual('other password');
+    expect(typeof sut.props.name).toBe('string');
   });
 });

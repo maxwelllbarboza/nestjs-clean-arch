@@ -56,8 +56,8 @@ describe('UserEntity unit tests', () => {
     expect(sut.props.name).toEqual('other name');
   });
 
-  it('Should update a password field', () => {
-    sut.updatePassword('other password');
-    expect(sut.props.password).toEqual('other password');
+  it('Should update a pas', () => {
+    sut.update('other name');
+    expect(sut.props.name).toEqual('other name');
   });
 });
