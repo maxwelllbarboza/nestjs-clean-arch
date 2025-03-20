@@ -4,6 +4,7 @@ import { UserInputDto } from '../dtos/user-input.dto';
 
 export namespace GetUserUseCase {
   export type Input = UserInputDto;
+
   export type Output = UserOutputDto;
 
   export class UseCase {
