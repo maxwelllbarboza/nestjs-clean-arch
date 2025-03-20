@@ -1,10 +1,11 @@
 import { UserRepository } from '@/users/domain/repositories/user.repository';
-import { GetUserInputDto } from '../dtos/getUser-input.dto';
+
 import { GetUserOutputDto } from '../dtos/getUser-output.dto';
 import { UseCase as DefaultUsecase } from '@/shared/application/usecases/use-case';
+import { SearchInputDto } from '@/shared/application/dtos/search-input.dto';
 
 export namespace GetUserUseCase {
-  export type Input = GetUserInputDto;
+  export type Input = SearchInputDto;
   export type Output = GetUserOutputDto;
 
   export class UseCase implements DefaultUsecase<Input, Output> {

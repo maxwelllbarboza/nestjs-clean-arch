@@ -4,7 +4,7 @@ import { GetUserOutputDto } from '../dtos/getUser-output.dto';
 import { UseCase as DefaultUsecase } from '@/shared/application/usecases/use-case';
 
 export namespace GetUserUseCase {
-  export type Input = GetUserInputDto;
+  export type Input = SearchInputDto;
   export type Output = GetUserOutputDto;
 
   export class UseCase implements DefaultUsecase<Input, Output> {

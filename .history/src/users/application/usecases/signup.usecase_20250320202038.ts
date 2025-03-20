@@ -4,7 +4,7 @@ import { UserEntity } from '@/users/domain/entities/user.entity';
 import { HashProvider } from '@/shared/application/providers/hash-provider';
 import { SignupInputDto } from '../dtos/signup-input.dto';
 import { SignupOutputDto } from '../dtos/signup-output.dto';
-import { UseCase as DefaultUsecase } from '@/shared/application/usecases/use-case';
+import { UseCase as DefaultUsecase } from '@/shared/application/providers/usecases/use-case';
 
 export namespace SignupUseCase {
   export type Input = SignupInputDto;
