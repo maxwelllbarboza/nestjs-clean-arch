@@ -62,8 +62,8 @@ export class UserEntity extends Entity<UserProps> {
   static validate(props: UserProps) {
     const validator = UserValidatorFactory.create();
     const isValid = validator.validate(props);
-    if (!isValid) {
-      throw new EntityValidationError(validator.errors);
+    if(!isValid){
+      throw new EntityValidationError
     }
   }
 }
