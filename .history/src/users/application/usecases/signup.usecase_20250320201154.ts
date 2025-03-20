@@ -2,12 +2,11 @@ import { UserRepository } from '@/users/domain/repositories/user.repository';
 import { BadRequestError } from '../errors/bad-request-error';
 import { UserEntity } from '@/users/domain/entities/user.entity';
 import { HashProvider } from '@/shared/application/providers/hash-provider';
-import { SignupInputDto } from '../dtos/signup-input.dto';
-import { SignupOutputDto } from '../dtos/signup-output.dto';
 
 export namespace SignupUseCase {
-  export type Input = SignupInputDto;
-  export type Output = SignupOutputDto;
+  export type Input = 
+
+  export type Output =
 
   export class UseCase {
     constructor(

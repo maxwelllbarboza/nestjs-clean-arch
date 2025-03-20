@@ -1,10 +1,10 @@
 import { UserRepository } from '@/users/domain/repositories/user.repository';
+import { UserOutputDto } from '../dtos/getUser-output.dto';
 import { GetUserInputDto } from '../dtos/getUser-input.dto';
-import { GetUserOutputDto } from '../dtos/getUser-output.dto';
 
 export namespace GetUserUseCase {
-  export type Input = GetUserInputDto;
-  export type Output = GetUserOutputDto;
+  export type Input = UserInputDto;
+  export type Output = UserOutputDto;
 
   export class UseCase {
     constructor(private userRepository: UserRepository.Repository) {}

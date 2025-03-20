@@ -1,9 +1,9 @@
 import { UserRepository } from '@/users/domain/repositories/user.repository';
-import { GetUserInputDto } from '../dtos/getUser-input.dto';
 import { GetUserOutputDto } from '../dtos/getUser-output.dto';
+import { GetUserInputDto } from '../dtos/getUser-input.dto';
 
 export namespace GetUserUseCase {
-  export type Input = GetUserInputDto;
+  export type Input = UserInputDto;
   export type Output = GetUserOutputDto;
 
   export class UseCase {

@@ -7,6 +7,7 @@ import { SignupOutputDto } from '../dtos/signup-output.dto';
 
 export namespace SignupUseCase {
   export type Input = SignupInputDto;
+
   export type Output = SignupOutputDto;
 
   export class UseCase {
