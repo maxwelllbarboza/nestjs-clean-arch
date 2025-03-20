@@ -58,33 +58,19 @@ export class SearchParams {
     return this._sort;
   }
 
-  private set sort(value: string | null) {
-    this._sort =
-      value === null || value === undefined || value === '' ? null : `${value}`;
-  }
+  private set sort(value: string | null) {}
 
   get sortDir() {
     return this._sortDir;
   }
 
-  private set sortDir(value: string | null) {
-    if (!this.sort) {
-      this._sortDir = null;
-      return;
-    }
-    const dir = `${value}`.toLowerCase();
-    this._sortDir = dir !== 'asc' && dir !== 'desc' ? 'desc' : dir;
-  }
+  private set sortDir(value: string | null) {}
 
   get filter() {
     return this._filter;
   }
 
-  private set filter(value: string | null) {
-    this._filter =
-      value === null || value === undefined || value === '' ? null : `${value}`
-  }
-}
+  private set filter(value: string | null) {}
 }
 
 export interface SerchableRepositoryInterface<
