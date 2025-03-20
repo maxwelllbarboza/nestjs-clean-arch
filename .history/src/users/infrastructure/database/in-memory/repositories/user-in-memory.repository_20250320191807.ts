@@ -33,11 +33,11 @@ export class UserInMemoryRepository
     filter: UserRepository.Filter,
   ): Promise<UserEntity[]> {
     if (!filter) {
-      return items;
+      return items
     }
-    return items.filter((item) => {
-      return item.props.name.toLowerCase().includes(filter.toLowerCase());
-    });
+    return items.filter(item => {
+      return item.props.name.toLowerCase().includes(filter.toLowerCase())
+    })
   }
 
   protected async applySort(
@@ -47,6 +47,7 @@ export class UserInMemoryRepository
   ): Promise<UserEntity[]> {
     return !sort
       ? super.applySort(items, 'createdAt', 'desc')
-      : super.applySort(items, sort, sortDir);
+      : super.applySort(items, sort, sortDir)
+  }
   }
 }

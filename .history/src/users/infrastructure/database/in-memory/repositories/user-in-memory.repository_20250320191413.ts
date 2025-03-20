@@ -2,7 +2,6 @@ import { ConflictError } from '@/shared/domain/errors/conflict-error';
 import { NotFoundError } from '@/shared/domain/errors/not-found-error';
 import { InMemoryRepository } from '@/shared/domain/repositories/in-memory.repository';
 import { InMemorySearchableRepository } from '@/shared/domain/repositories/in-memory.searchable.repository';
-import { SortDirection } from '@/shared/domain/repositories/searchable-repository-contracts';
 import { UserEntity } from '@/users/domain/entities/user.entity';
 import { UserRepository } from '@/users/domain/repositories/user.repository';
 
@@ -28,16 +27,16 @@ export class UserInMemoryRepository
     }
   }
 
-  protected async applyFilter(
+  protected applyFilter(
     items: UserEntity[],
     filter: UserRepository.Filter,
   ): Promise<UserEntity[]> {
     if (!filter) {
-      return items;
+      return items
     }
-    return items.filter((item) => {
-      return item.props.name.toLowerCase().includes(filter.toLowerCase());
-    });
+    return items.filter(item => {
+      return item.props.name.toLowerCase().includes(filter.toLowerCase())
+    })
   }
 
   protected async applySort(
@@ -47,6 +46,7 @@ export class UserInMemoryRepository
   ): Promise<UserEntity[]> {
     return !sort
       ? super.applySort(items, 'createdAt', 'desc')
-      : super.applySort(items, sort, sortDir);
+      : super.applySort(items, sort, sortDir)
+  }
   }
 }
