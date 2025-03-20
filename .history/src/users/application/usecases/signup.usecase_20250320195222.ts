@@ -29,11 +29,16 @@ export namespace SignupUseCase {
         throw new BadRequestError('Input data not provided');
       }
       await this.userRepository.emailExists(email);
-      const hashPassword = await this.hashProvider.generateHash(password);
+
+      const hashPassword = await this.hashProvider.generateHash
+
+
       const entity = new UserEntity(
         Object.assign(input, { password: hashPassword }),
       );
+
       await this.userRepository.insert(entity);
+
       return entity.toJSON();
     }
   }

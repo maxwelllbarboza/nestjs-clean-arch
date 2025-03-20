@@ -34,6 +34,7 @@ export namespace SignupUseCase {
         Object.assign(input, { password: hashPassword }),
       );
       await this.userRepository.insert(entity);
+
       return entity.toJSON();
     }
   }
