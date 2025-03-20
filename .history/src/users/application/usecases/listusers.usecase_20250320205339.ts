@@ -5,7 +5,7 @@ import {
   PaginationoutputDto,
   PaginationOutputMapper,
 } from '@/shared/application/dtos/pagination-output.dto';
-import { UserOutput, UserOutputMapper } from '../dtos/user-output';
+import { UserOutput } from '../dtos/user-output';
 
 export namespace ListUserUseCase {
   export type Input = SearchInputDto;
@@ -21,8 +21,8 @@ export namespace ListUserUseCase {
     }
 
     private toOutput(searchResult: UserRepository.SearchResult): Output {
-      const items = searchResult.items.map((item) => {
-        return UserOutputMapper.toOutput(item);
+      const items = searchResult.items.map(item => {
+        return User
       });
       return PaginationOutputMapper.toOutput(items, searchResult);
     }

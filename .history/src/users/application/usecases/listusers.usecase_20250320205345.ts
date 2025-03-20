@@ -21,8 +21,8 @@ export namespace ListUserUseCase {
     }
 
     private toOutput(searchResult: UserRepository.SearchResult): Output {
-      const items = searchResult.items.map((item) => {
-        return UserOutputMapper.toOutput(item);
+      const items = searchResult.items.map(item => {
+        return UserOutputMapper.toOutput
       });
       return PaginationOutputMapper.toOutput(items, searchResult);
     }
