@@ -25,9 +25,9 @@ export namespace SignupUseCase {
         throw new BadRequestError('Input data not provided');
       }
       await this.userRepository.emailExists(email);
-      const entity = new UserEntity(input);
-      await this.userRepository.insert(entity);
-      return entity.toJSON();
+
+      const entity = new UserEntity(input)
+      await this.userRepository.
     }
   }
 }

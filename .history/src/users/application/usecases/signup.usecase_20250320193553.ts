@@ -1,6 +1,5 @@
 import { UserRepository } from '@/users/domain/repositories/user.repository';
 import { BadRequestError } from '../errors/bad-request-error';
-import { UserEntity } from '@/users/domain/entities/user.entity';
 
 export namespace SignupUseCase {
   export type Input = {
@@ -25,9 +24,8 @@ export namespace SignupUseCase {
         throw new BadRequestError('Input data not provided');
       }
       await this.userRepository.emailExists(email);
-      const entity = new UserEntity(input);
-      await this.userRepository.insert(entity);
-      return entity.toJSON();
+
+      const entity = new
     }
   }
 }

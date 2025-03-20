@@ -27,7 +27,7 @@ export namespace SignupUseCase {
       await this.userRepository.emailExists(email);
       const entity = new UserEntity(input);
       await this.userRepository.insert(entity);
-      return entity.toJSON();
+      return 
     }
   }
 }
