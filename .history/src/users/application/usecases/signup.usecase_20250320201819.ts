@@ -10,7 +10,7 @@ export namespace SignupUseCase {
   export type Input = SignupInputDto;
   export type Output = SignupOutputDto;
 
-  export class UseCase implements DefaultUsecase<Input, Output> {
+  export class UseCase implements DefaultUsecase<Input, > {
     constructor(
       private userRepository: UserRepository.Repository,
       private hashProvider: HashProvider,
