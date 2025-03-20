@@ -12,12 +12,7 @@ export namespace UserRepository {
 
   export class SearchResult extends DefaultSearchResult<UserEntity, Filter> {}
   export interface Repository
-    extends SerchableRepositoryInterface<
-      UserEntity,
-      Filter,
-      SearchParams,
-      SearchResult
-    > {
+    extends SerchableRepositoryInterface<UserEntity, SearchParams, any> {
     findByEmail(email: string): Promise<UserEntity>;
     emailExists(email: string): Promise<void>;
   }

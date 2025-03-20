@@ -8,16 +8,11 @@ import {
 export namespace UserRepository {
   export type Filter = string;
 
-  export class SearchParams extends DefaultSearchParams<Filter> {}
+  export class SearchParams extends DefaultSearchParams {}
 
   export class SearchResult extends DefaultSearchResult<UserEntity, Filter> {}
   export interface Repository
-    extends SerchableRepositoryInterface<
-      UserEntity,
-      Filter,
-      SearchParams,
-      SearchResult
-    > {
+    extends SerchableRepositoryInterface<UserEntity, any, any> {
     findByEmail(email: string): Promise<UserEntity>;
     emailExists(email: string): Promise<void>;
   }

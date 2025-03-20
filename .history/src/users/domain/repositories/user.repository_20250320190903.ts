@@ -14,7 +14,6 @@ export namespace UserRepository {
   export interface Repository
     extends SerchableRepositoryInterface<
       UserEntity,
-      Filter,
       SearchParams,
       SearchResult
     > {
