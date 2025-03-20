@@ -62,5 +62,5 @@ export interface SerchableRepositoryInterface<
   SearchInput,
   SerchOutPut,
 > extends RepositoryInterface<E> {
-  search(props: SearchParams): Promise<SerchOutPut>;
+  search(props: SearchInput): Promise<SerchOutPut>;
 }
