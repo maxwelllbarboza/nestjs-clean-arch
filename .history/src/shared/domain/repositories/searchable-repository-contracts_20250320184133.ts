@@ -136,7 +136,6 @@ export interface SerchableRepositoryInterface<
   SearchInput,
   SerchOutPut,
 > extends RepositoryInterface<E> {
-  sortableFields: string[];
-
+  sortableFields: string[] = []
   search(props: SearchParams): Promise<SerchOutPut>;
 }
