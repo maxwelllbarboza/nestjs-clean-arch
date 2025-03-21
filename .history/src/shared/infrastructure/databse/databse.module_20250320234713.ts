@@ -1,0 +1,9 @@
+import { Module } from '@nestjs/common';
+import { PrismaService } from './prisma/prisma.service';
+import { EnvConfigModule } from '../env-config/env-config.module';
+
+@Module({
+  imports: [EnvConfigModule.]
+  providers: [PrismaService],
+})
+export class DatabseModule {}
