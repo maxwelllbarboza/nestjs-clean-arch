@@ -25,6 +25,7 @@ export class UserPrismaRepository implements UserRepository.Repository {
   }
   findById(id: string): Promise<UserEntity> {
     return this._get(id);
+    throw new Error('Method not implemented.');
   }
   findAll(): Promise<UserEntity[]> {
     throw new Error('Method not implemented.');
