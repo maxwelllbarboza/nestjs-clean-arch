@@ -1,0 +1,20 @@
+import { UserRepository } from '@/users/domain/repositories/user.repository';
+import { GetUserInputDto } from '../dtos/getUser-input.dto';
+import { GetUserOutputDto } from '../dtos/getUser-output.dto';
+import { UseCase as DefaultUsecase } from '@/shared/application/usecases/use-case';
+import { UserOutputMapper } from '../dtos/user-output';
+import { DeleteUserInputDto } from '../dtos/delete-user-input.dto';
+
+export namespace GetUserUseCase {
+  export type Input = DeleteUserInputDto;
+  export type Output = void;
+
+  export class UseCase implements DefaultUsecase<Input, Output> {
+    constructor(private userRepository: UserRepository.Repository) {}
+
+    async execute(input: Input): Promise<Output> {
+      const entity = await this.userRepository.findById(input.id);
+      return UserOutputMapper.toOutput(entity);
+    }
+  }
+}
