@@ -2,7 +2,6 @@ import { UserRepository } from '@/users/domain/repositories/user.repository';
 import { GetUserInputDto } from '../dtos/getUser-input.dto';
 import { GetUserOutputDto } from '../dtos/getUser-output.dto';
 import { UseCase as DefaultUsecase } from '@/shared/application/usecases/use-case';
-import { UserOutputMapper } from '../dtos/user-output';
 
 export namespace GetUserUseCase {
   export type Input = GetUserInputDto;
