@@ -53,7 +53,7 @@ import { DeleteUserUseCase } from '../application/usecases/delete-user.usecase';
     {
       provide: ListUsersUseCase.UseCase,
       useFactory: (userRepository: UserRepository.Repository) => {
-        return new ListUsersUseCase.UseCase(userRepository);
+        return new ListUserUseCase.UseCase(userRepository);
       },
       inject: ['UserRepository'],
     },

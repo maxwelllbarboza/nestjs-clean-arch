@@ -1,7 +1,7 @@
 import { SortDirection } from '@/shared/domain/repositories/searchable-repository-contracts';
 import { ListUsersUseCase } from '@/users/application/usecases/list-users.usecase';
 
-export class ListUsersDto implements ListUsersUseCase.Input {
+export class ListUsersDto implements ListUserUseCase.Input {
   page?: number;
   perPage?: number;
   sort?: string;

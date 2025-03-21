@@ -49,24 +49,24 @@ export class UsersController {
   private listUsersUseCase: ListUsersUseCase.UseCase;
 
   @Post()
-  async create(@Body() signupDto: SignupDto) {
-    return await this.signupUseCase.execute(signupDto);
+  create(@Body() signupDto: SignupDto) {
+    return this.signupUseCase.execute(signupDto);
   }
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  async login(@Body() signinDto: SigninDto) {
-    return await this.signinUseCase.execute(signinDto);
+  login(@Body() signinDto: SigninDto) {
+    return this.signinUseCase.execute(signinDto);
   }
 
   @Get()
-  async search(@Query() searchParams: ListUsersDto) {
-    return await this.listUsersUseCase.execute(searchParams);
+  search(@Query() searchParams: ListUsersDto) {
+    return this.listUsersUseCase.execute(searchParams);
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.getUserUseCase.execute({ id });
+  findOne(@Param('id') id: string) {
+    return this.getUserUseCase.execute({ id });
   }
 
   @Put(':id')
@@ -87,9 +87,9 @@ export class UsersController {
       ...updatePasswordDto,
     });
   }
-  @HttpCode(HttpStatus.NO_CONTENT)
+
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    await this.deleteUserUseCase.execute({ id });
+    await this.deleteUserUseCase.execute(+id);
   }
 }

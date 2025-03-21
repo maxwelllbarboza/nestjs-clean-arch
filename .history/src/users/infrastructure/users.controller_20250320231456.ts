@@ -23,7 +23,6 @@ import { GetUserUseCase } from '../application/usecases/get-user.usecase';
 import { ListUsersUseCase } from '../application/usecases/list-users.usecase';
 import { SigninDto } from './dtos/signin.dto';
 import { ListUsersDto } from './dtos/list-users.dto';
-import { UpdatePasswordDto } from './dtos/update-password.dto';
 
 @Controller('users')
 export class UsersController {
@@ -49,47 +48,33 @@ export class UsersController {
   private listUsersUseCase: ListUsersUseCase.UseCase;
 
   @Post()
-  async create(@Body() signupDto: SignupDto) {
-    return await this.signupUseCase.execute(signupDto);
+  create(@Body() signupDto: SignupDto) {
+    return this.signupUseCase.execute(signupDto);
   }
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  async login(@Body() signinDto: SigninDto) {
-    return await this.signinUseCase.execute(signinDto);
+  login(@Body() signinDto: SigninDto) {
+    return this.signinUseCase.execute(signinDto);
   }
 
   @Get()
-  async search(@Query() searchParams: ListUsersDto) {
-    return await this.listUsersUseCase.execute(searchParams);
+  search(@Query() searchParams: ListUsersDto) {
+    return this.listUsersUseCase.execute(searchParams);
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.getUserUseCase.execute({ id });
+  findOne(@Param('id') id: string) {
+    return this.getUserUseCase.execute({ id });
   }
 
   @Put(':id')
-  async updateName(
-    @Param('id') id: string,
-    @Body() updateUserDto: UpdateUserDto,
-  ) {
-    return await this.updateUserUseCase.execute({ id, ...updateUserDto });
+  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+    return this.up
   }
 
-  @Patch(':id')
-  async updatePassword(
-    @Param('id') id: string,
-    @Body() updatePasswordDto: UpdatePasswordDto,
-  ) {
-    return await this.updatePasswordUseCase.execute({
-      id,
-      ...updatePasswordDto,
-    });
-  }
-  @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(':id')
-  async remove(@Param('id') id: string) {
-    await this.deleteUserUseCase.execute({ id });
+  remove(@Param('id') id: string) {
+    return this.usersService.remove(+id);
   }
 }

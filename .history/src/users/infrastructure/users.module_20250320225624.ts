@@ -7,7 +7,7 @@ import { UserRepository } from '../domain/repositories/user.repository';
 import { HashProvider } from '@/shared/application/providers/hash-provider';
 import { SigninUseCase } from '../application/usecases/signin.usecase';
 import { GetUserUseCase } from '../application/usecases/get-user.usecase';
-import { ListUsersUseCase } from '../application/usecases/list-users.usecase';
+import { ListUserUseCase } from '../application/usecases/list-users.usecase';
 import { UpdateUserUseCase } from '../application/usecases/update-user.usecase';
 import { UpdatePasswordUseCase } from '../application/usecases/update-password.usecase';
 import { DeleteUserUseCase } from '../application/usecases/delete-user.usecase';
@@ -15,6 +15,7 @@ import { DeleteUserUseCase } from '../application/usecases/delete-user.usecase';
 @Module({
   controllers: [UsersController],
   providers: [
+
     {
       provide: 'UserRepository',
       useClass: UserInMemoryRepository,
@@ -51,9 +52,9 @@ import { DeleteUserUseCase } from '../application/usecases/delete-user.usecase';
       inject: ['UserRepository'],
     },
     {
-      provide: ListUsersUseCase.UseCase,
+      provide: ListUserUseCase.UseCase,
       useFactory: (userRepository: UserRepository.Repository) => {
-        return new ListUsersUseCase.UseCase(userRepository);
+        return new ListUserUseCase.UseCase(userRepository);
       },
       inject: ['UserRepository'],
     },

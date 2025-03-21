@@ -50,7 +50,7 @@ export class UsersController {
 
   @Post()
   async create(@Body() signupDto: SignupDto) {
-    return await this.signupUseCase.execute(signupDto);
+     return this.signupUseCase.execute(signupDto);
   }
 
   @HttpCode(HttpStatus.OK)
@@ -87,9 +87,9 @@ export class UsersController {
       ...updatePasswordDto,
     });
   }
-  @HttpCode(HttpStatus.NO_CONTENT)
+
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    await this.deleteUserUseCase.execute({ id });
+    await this.deleteUserUseCase.execute(+id);
   }
 }
