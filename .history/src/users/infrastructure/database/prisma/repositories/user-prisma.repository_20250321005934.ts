@@ -56,8 +56,6 @@ export class UserPrismaRepository implements UserRepository.Repository {
       currentPage: props.page,
       perPage: props.perPage,
       sort: orderByField,
-      sortDir: orderByDir,
-      filter: props.filter,
     });
   }
   async insert(entity: UserEntity): Promise<void> {

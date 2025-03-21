@@ -49,16 +49,7 @@ export class UserPrismaRepository implements UserRepository.Repository {
         take: props.perPage && props.perPage > 0 ? props.perPage : 15,
       }),
     });
-
-    return new UserRepository.SearchResult({
-      items: (await models).map((model) => UserModelMapper.toEntity(model)),
-      total: count,
-      currentPage: props.page,
-      perPage: props.perPage,
-      sort: orderByField,
-      sortDir: orderByDir,
-      filter: props.filter,
-    });
+    
   }
   async insert(entity: UserEntity): Promise<void> {
     await this.prismaService.user.create({

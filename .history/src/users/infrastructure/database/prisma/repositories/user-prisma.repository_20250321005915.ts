@@ -54,10 +54,7 @@ export class UserPrismaRepository implements UserRepository.Repository {
       items: (await models).map((model) => UserModelMapper.toEntity(model)),
       total: count,
       currentPage: props.page,
-      perPage: props.perPage,
-      sort: orderByField,
-      sortDir: orderByDir,
-      filter: props.filter,
+      perPage
     });
   }
   async insert(entity: UserEntity): Promise<void> {

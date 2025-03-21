@@ -33,32 +33,7 @@ export class UserPrismaRepository implements UserRepository.Repository {
       }),
     });
 
-    const models = this.prismaService.user.findMany({
-      ...(props.filter && {
-        where: {
-          name: {
-            contains: props.filter,
-            mode: 'insensitive',
-          },
-        },
-        orderBy: {
-          [orderByField]: orderByDir,
-        },
-        skip:
-          props.page && props.page > 0 ? (props.page - 1) * props.perPage : 1,
-        take: props.perPage && props.perPage > 0 ? props.perPage : 15,
-      }),
-    });
-
-    return new UserRepository.SearchResult({
-      items: (await models).map((model) => UserModelMapper.toEntity(model)),
-      total: count,
-      currentPage: props.page,
-      perPage: props.perPage,
-      sort: orderByField,
-      sortDir: orderByDir,
-      filter: props.filter,
-    });
+    const models = this.
   }
   async insert(entity: UserEntity): Promise<void> {
     await this.prismaService.user.create({

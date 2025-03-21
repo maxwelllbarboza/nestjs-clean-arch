@@ -52,12 +52,7 @@ export class UserPrismaRepository implements UserRepository.Repository {
 
     return new UserRepository.SearchResult({
       items: (await models).map((model) => UserModelMapper.toEntity(model)),
-      total: count,
-      currentPage: props.page,
-      perPage: props.perPage,
-      sort: orderByField,
-      sortDir: orderByDir,
-      filter: props.filter,
+      total
     });
   }
   async insert(entity: UserEntity): Promise<void> {
