@@ -3,12 +3,14 @@ import { BadRequestError } from '../../../shared/application/errors/bad-request-
 import { UserEntity } from '@/users/domain/entities/user.entity';
 import { HashProvider } from '@/shared/application/providers/hash-provider';
 import { SignupInputDto } from '../dtos/signup-input.dto';
+import { SignupOutputDto } from '../dtos/signup-output.dto';
 import { UseCase as DefaultUsecase } from '@/shared/application/usecases/use-case';
-import { UserOutput, UserOutputMapper } from '../dtos/user-output';
+import { UserOutputMapper } from '../dtos/user-output';
+import { SigninInputDto } from '../dtos/signin-input.dto';
 
-export namespace SignupUseCase {
-  export type Input = SignupInputDto;
-  export type Output = UserOutput;
+export namespace SigninUseCase {
+  export type Input = SigninInputDto;
+  export type Output = SignupOutputDto;
 
   export class UseCase implements DefaultUsecase<Input, Output> {
     constructor(
