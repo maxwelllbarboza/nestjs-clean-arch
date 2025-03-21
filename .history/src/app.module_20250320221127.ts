@@ -8,7 +8,7 @@ import { BcryptjsHashProvider } from './users/infrastructure/providers/hash-prov
 import { UserRepository } from './users/domain/repositories/user.repository';
 import { HashProvider } from './shared/application/providers/hash-provider';
 import { SigninUseCase } from './users/application/usecases/signin.usecase';
-import { DeleteUserUseCase, GetUserUseCase } from './users/application/usecases/delete-user.usecase';
+import { GetUserUseCase } from './users/application/usecases/delete-user.usecase';
 import { ListUserUseCase } from './users/application/usecases/list-users.usecase';
 import { UpdateUserUseCase } from './users/application/usecases/update-user.usecase';
 import { UpdatePasswordUseCase } from './users/application/usecases/update-password.usecase';
@@ -72,16 +72,9 @@ import { UpdatePasswordUseCase } from './users/application/usecases/update-passw
         userRepository: UserRepository.Repository,
         hashProvider: HashProvider,
       ) => {
-        return new UpdatePasswordUseCase.UseCase(userRepository, hashProvider);
+        return new UpdateUserUseCase.UseCase(userRepository, hashProvider);
       },
       inject: ['UserRepository', 'HashProvider'],
-    },
-    {
-      provide: DeleteUserUseCase.UseCase,
-      useFactory: (userRepository: UserRepository.Repository) => {
-        return new DeleteUserUseCase.UseCase(userRepository);
-      },
-      inject: ['UserRepository'],
     },
   ],
 })

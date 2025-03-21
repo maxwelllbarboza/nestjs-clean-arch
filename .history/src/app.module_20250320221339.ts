@@ -79,7 +79,7 @@ import { UpdatePasswordUseCase } from './users/application/usecases/update-passw
     {
       provide: DeleteUserUseCase.UseCase,
       useFactory: (userRepository: UserRepository.Repository) => {
-        return new DeleteUserUseCase.UseCase(userRepository);
+        return new UpdateUserUseCase.UseCase(userRepository);
       },
       inject: ['UserRepository'],
     },
