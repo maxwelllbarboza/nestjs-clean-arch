@@ -26,7 +26,7 @@ import { HashProvider } from './shared/application/providers/hash-provider';
         userRepository: UserRepository.Repository,
         hashProvider: HashProvider,
       ) => {
-        return new SignupUseCase.UseCase(userRepository, hashProvider);
+        return new 
       },
       inject: ['UserRepository', 'HashProvider'],
     },

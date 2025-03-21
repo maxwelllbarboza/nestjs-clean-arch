@@ -4,9 +4,6 @@ import { EnvConfigModule } from './shared/infrastructure/env-config/env-config.m
 import { UsersModule } from './users/infrastructure/users.module';
 import { SignupUseCase } from './users/application/usecases/signup.usecase';
 import { UserInMemoryRepository } from './users/infrastructure/database/in-memory/repositories/user-in-memory.repository';
-import { BcryptjsHashProvider } from './users/infrastructure/providers/hash-provider/bcryptjs-hash.provider';
-import { UserRepository } from './users/domain/repositories/user.repository';
-import { HashProvider } from './shared/application/providers/hash-provider';
 
 @Module({
   imports: [ConfigModule, EnvConfigModule, UsersModule],
@@ -18,17 +15,12 @@ import { HashProvider } from './shared/application/providers/hash-provider';
     },
     {
       provide: 'HashProvider',
-      useClass: BcryptjsHashProvider,
+      useClass: Bcry
+
     },
     {
       provide: SignupUseCase.UseCase,
-      useFactory: (
-        userRepository: UserRepository.Repository,
-        hashProvider: HashProvider,
-      ) => {
-        return new SignupUseCase.UseCase(userRepository, hashProvider);
-      },
-      inject: ['UserRepository', 'HashProvider'],
+      useClass: SignupUseCase.UseCase,
     },
   ],
 })
